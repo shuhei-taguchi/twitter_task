@@ -4,7 +4,15 @@ class TasksController < ApplicationController
   before_action :correct_user, only: [:show, :destroy]
 
   def index
+<<<<<<< HEAD
     @tasks = current_user.tasks.page(params[:page]).per(3)
+=======
+    if logged_in?
+      @micropost = current_user.microposts.build  # form_for 用
+      @microposts = current_user.microposts.order('created_at DESC').page(params[:page])
+    end
+      @tasks = Task.all.page(params[:page]).per(3)
+>>>>>>> origin/master
   end
 
   def show

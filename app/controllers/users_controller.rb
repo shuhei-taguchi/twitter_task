@@ -1,12 +1,20 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show]
+<<<<<<< HEAD
   
+=======
+>>>>>>> origin/master
   def index
     @users = User.all.page(params[:page])
   end
 
   def show
      @user = User.find(params[:id])
+<<<<<<< HEAD
+=======
+     @microposts = @user.microposts.order('created_at DESC').page(params[:page])
+    counts(@user)
+>>>>>>> origin/master
   end
 
   def new
@@ -24,6 +32,7 @@ class UsersController < ApplicationController
       render :new
     end
   end
+<<<<<<< HEAD
   
   def followings
     @user = User.find(params[:id])
@@ -37,6 +46,9 @@ class UsersController < ApplicationController
     counts(@user)
   end
   
+=======
+
+>>>>>>> origin/master
   private
 
   def user_params

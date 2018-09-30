@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180930091341) do
+=======
+ActiveRecord::Schema.define(version: 20180922064455) do
+
+  create_table "microposts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_microposts_on_user_id", using: :btree
+  end
+>>>>>>> origin/master
 
   create_table "tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content"
@@ -29,5 +41,9 @@ ActiveRecord::Schema.define(version: 20180930091341) do
     t.datetime "updated_at",      null: false
   end
 
+<<<<<<< HEAD
   add_foreign_key "tasks", "users"
+=======
+  add_foreign_key "microposts", "users"
+>>>>>>> origin/master
 end
